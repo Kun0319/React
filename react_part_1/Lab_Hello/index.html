@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+
+        class App extends React.Component {
+            render() {
+                return <h1>Hello world!</h1>
+            }
+        }
+        class BBB extends React.Component {
+            render() {
+                // 如果要換行 要加括號來包住程式範圍
+                return (
+                    <h1>
+                        Hello world!
+                    </h1>);
+
+            }
+        }
+
+        // ReactDOM.render(<App />, document.getElementById('root'))
+        ReactDOM.render(<BBB />, document.getElementById('root'))
+
+    </script>
+</body>
+
+</html>

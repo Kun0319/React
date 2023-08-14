@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="report"></div>
+    <script>
+        // obj = {
+        //     x: 100,
+        //     y: 200
+        // }
+
+        // var obj2 = obj;
+        // obj2.x = 101;
+
+        // report.innerText = `x:${obj.x},y:${obj.y}`;
+
+
+
+
+
+
+
+        obj = {
+            x: 100,
+            y: 200
+        }
+        // ...點點點是把物件內容展開的意思
+        var obj2 = { ...obj, z: 300 };
+        obj2.x = 1001;
+
+        report.innerText = `x:${obj.x},y:${obj.y}`;
+        report.innerHTML += `<br/>x:${obj.x},y:${obj.y},z:${obj.z = 300}`;
+    </script>
+</body>
+
+</html>
