@@ -44,7 +44,7 @@
         // var workResult = longTimeWork(data1);
         var workResult = React.useMemo(() => {
           return longTimeWork(data1)
-        }, [data1]);
+        }, [data1]);// Result=2  data =1
 
         let changeData1 = () => {
           setData1( data1 + 1)

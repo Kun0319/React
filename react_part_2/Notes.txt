@@ -9,3 +9,23 @@ https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 How to create simple React Router to navigate multiple pages?
 https://www.golangprograms.com/how-to-create-simple-react-router-to-navigate-multiple-pages.html
 
+
+
+
+
+
+
+
+
+var obj = IcecreamMaker();
+obj.milk=200;
+obk.sugar=100p;
+obk.make();
+
+
+var result=make(200,100) 
+
+
+
+
+

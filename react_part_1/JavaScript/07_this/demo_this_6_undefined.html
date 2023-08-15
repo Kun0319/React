@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    
+
 </head>
+
 <body>
     <div id="debug"></div>
-    
+
     <script>
+        // 這是使用嚴格模式
         "use strict";
 
-        function showLocation () {
+
+        function showLocation() {
             // console.log(this);  // undefined
             debug.innerText = this.location;
-        } 
-        showLocation();  
+        }
+        showLocation();
 
         // var showLocation = function () {
         //     console.log(this);
         //     debug.innerText = this.location;
-        // } 
+        // }
         // showLocation = showLocation.bind(window);
         // showLocation();
 
         // var showLocation = () => {
         //     console.log(this);
         //     debug.innerText = this.location;
-        // } 
+        // }
         // showLocation();
 
     </script>
-    
+
 </body>
+
 </html>
-
-

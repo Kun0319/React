@@ -25,43 +25,79 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <script type="text/babel">
-
-        function DisplayTime(props) {
-            return <span>
-                {props.date.toLocaleTimeString()}
-            </span>;
-        }
-
-        class Clock extends React.Component {
-            constructor(props) {
-                super(props);
-                this.state = { date: new Date() };
+        // 自己寫
+        class App extends React.Component {
+            state = {
+                userName: "Kun"
             }
-
-            componentDidMount() {
-                this.timerId = setInterval( () => {
-                    this.setState({ date: new Date() });
-                }, 1000);
-            }
-
-            componentWillUnmount() {
-                clearInterval(this.timerId);
-            }
-
             render() {
-                return (
-                    <div>
-                        <h1>Hello, world!</h1>
-                        <h2>It is <DisplayTime date = {this.state.date} /> </h2>
-                    </div>
-                );
+                return <div>
+                    <form >
+                        Your name:
+                        <input
+                            type="text"
+                            value={this.state.userName}
+                            onChange={this.userName_click}
+                        />
+                    </form>
+                </div>
+            }
+
+
+            userName_click = () => {
+                var newState = { ...this.state };
+                newState.userName = event.target.value;
+                this.setState(newState);
+                // console.log("click:", Date())
+                // console.log(event.target.value);
             }
         }
 
         ReactDOM.render(
-            <Clock />,
+            <App />,
             document.getElementById('root')
         );
+
+
+
+
+
+        // function DisplayTime(props) {
+        //     return <span>
+        //         {props.date.toLocaleTimeString()}
+        //     </span>;
+        // }
+
+        // class Clock extends React.Component {
+        //     constructor(props) {
+        //         super(props);
+        //         this.state = { date: new Date() };
+        //     }
+
+        //     componentDidMount() {
+        //         this.timerId = setInterval(() => {
+        //             this.setState({ date: new Date() });
+        //         }, 1000);
+        //     }
+
+        //     componentWillUnmount() {
+        //         clearInterval(this.timerId);
+        //     }
+
+        //     render() {
+        //         return (
+        //             <div>
+        //                 <h1>Hello, world!</h1>
+        //                 <h2>It is <DisplayTime date={this.state.date} /> </h2>
+        //             </div>
+        //         );
+        //     }
+        // }
+
+        // ReactDOM.render(
+        //     <Clock />,
+        //     document.getElementById('root')
+        // );
 
     </script>
 

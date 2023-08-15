@@ -28,25 +28,56 @@
 
         class Toggle extends React.Component {
             constructor(props) {
+                // super定義了屬性
                 super(props);
-                this.state = { isToggleOn: true };
+                this.state = { isToggleOn: this.props.yesno };
+                // bind定義了括號內的東西
+                // this.doClick = this.doClick.bind(root);
 
             }
 
             render() {
                 return (
-                    <button 
-                        className="btn btn-outline-success" 
+                    <button id="labButton"
+                        className="btn btn-outline-success"
+                        onClick={() => { this.doClick(this.props.btnid) }}
                     >
                         {this.state.isToggleOn ? 'ON' : 'OFF'}
                     </button>
                 );
             }
-        }
+            // 寫成箭頭函式可以讓他不是undefined
+            doClick = (e) => {
+                this.setState({ isToggleOn: !this.state.isToggleOn })
+                // console.log(event.target.id);
+                // console.log(e.target.id);
+                console.log(e);
+            }
 
+
+        }
+        var buttonList = [
+
+            { btnId: 1, value: true },
+            { btnId: 2, value: false },
+            { btnId: 3, value: true },
+            { btnId: 4, value: true },
+            { btnId: 5, value: true }
+
+        ]
+
+        // <Toggle btnid={1} /><Toggle btnid={2} /> <Toggle btnid={3} />
         ReactDOM.render(
             <div className="container">
-                <Toggle />
+                {
+                    buttonList.map((btn) => {
+                        return <Toggle
+                            key={btn.btnId}
+                            btnid={btn.btnId}
+                            yesno={btn.value}
+                        />
+                    })
+                }
             </div>,
             document.getElementById('root')
         );
