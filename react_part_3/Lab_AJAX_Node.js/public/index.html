@@ -12,6 +12,8 @@
             font-size: 1.25em;
         }
     </style>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 
 <body>
@@ -131,33 +133,57 @@
             });
 
 
-            $("#getButton").on("click", function () {
+
+
+            $("#getButton").on("click", async function () {
                 var s = $("#nameTextBox").val();
                 var url = "http://localhost/hello/" + s;
-                $.get(url, function (e) {
-                    $("#reportSpan").text(e);
-                })
-                // $("#reportSpan").text(s);
+                var result = await axios.get("/hello/" + s);
+
+                $("#reportSpan").text(result.data);
             })
 
 
 
-            $("#postButton").on("click", function () {
+
+            $("#postButton").on("click", async function () {
                 var dataToServer = {
                     firstName: $("#firstNameTextBox").val(),
                     lastName: $("#lastNameTextBox").val()
                 }
-                $.post("/test", function (e) {
-                    $("#reportSpan").text(e);
-                })
 
+                var result = await $.ajax({
+                    type: "post",
+                    url: "/test2",
+                    headers: {
+                        prefix: "Mr.",
+                        "Content-type": "application/json"
+                    },
+                    data: JSON.stringify(dataToServer),
+                    // contentType: "application/json"
 
+                });
 
-
-
-
-                $("#resultSpan").text(JSON.stringify(dataToServer));
+                $("#resultSpan").text(result);
             })
+
+
+            // $("#postButton").on("click", function () {
+            //     var dataToServer = {
+            //         firstName: $("#firstNameTextBox").val(),
+            //         lastName: $("#lastNameTextBox").val()
+            //     }
+            //     $.post("/test", function (e) {
+            //         $("#reportSpan").text(e);
+            //     })
+
+
+
+
+
+
+            $("#resultSpan").text(JSON.stringify(dataToServer));
+            // })
 
 
 
